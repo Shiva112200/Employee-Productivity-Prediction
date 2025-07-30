@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Prediction Result</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: url("{{ url_for('static', filename='images/Browsing.png') }}")
+          no-repeat center center fixed;
+        background-size: cover;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background-color: #000000;
+        color: white;
+      }
+
+      .navbar h2 {
+        margin: 0;
+        font-size: 1.5rem;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        background-color: #87ceeb;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        font-weight: 800;
+        transition: background-color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        background-color: #00bfff;
+      }
+
+      .result-box {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        text-align: center;
+        max-width: 500px;
+        width: 90%;
+        margin: auto;
+        margin-top: 80px;
+      }
+
+      .result-box h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .result-box p {
+        font-size: 1.3rem;
+        margin: 10px 0;
+        color: #444;
+      }
+
+      .highlight {
+        font-weight: bold;
+        color: #0066cc;
+      }
+
+      .home-link {
+        display: inline-block;
+        margin-top: 1.5rem;
+        padding: 0.7rem 1.5rem;
+        background-color: #00bfff;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+      }
+
+      .home-link:hover {
+        background-color: #1e90ff;
+      }
+
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.3rem;
+        }
+
+        .nav-links {
+          flex-wrap: wrap;
+        }
+
+        .result-box {
+          margin-top: 100px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <h2>Employee Productivity Prediction Using ML</h2>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/predict">Predict</a>
+      </div>
+    </div>
+
+    <div class="result-box">
+      <h1>Result</h1>
+      <p>
+        Based on the given input, the Employee is
+        <span class="highlight">{{ result }}</span>.
+      </p>
+      <a href="/" class="home-link">Go back to Home</a>
+    </div>
+  </body>
+</html>

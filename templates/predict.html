@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Productivity Prediction</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", sans-serif;
+        min-height: 100vh;
+        background: url("{{ url_for('static', filename='images/HeroImage_2.7bef14b0064e0f7ed833.png') }}")
+          no-repeat center center fixed;
+        background-size: cover;
+        backdrop-filter: blur(1.5px);
+      }
+
+      .navbar {
+        background-color: #111827dd;
+        color: white;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .nav-title {
+        font-size: 1.6rem;
+        font-weight: bold;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        background-color: #3b82f6;
+        padding: 10px 16px;
+        margin-left: 1rem;
+        border-radius: 6px;
+        font-weight: 600;
+        transition: 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        background-color: #2563eb;
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 60px 20px;
+      }
+
+      .form {
+        background-color: #ffffffee;
+        padding: 40px;
+        border-radius: 15px;
+        max-width: 900px;
+        width: 100%;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-group {
+        display: flex;
+        gap: 25px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+
+      .form input {
+        flex: 1;
+        padding: 16px 18px;
+        font-size: 1.1rem;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        transition: border-color 0.3s, box-shadow 0.3s;
+      }
+
+      .form input:focus {
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+        outline: none;
+      }
+
+      .submit-btn {
+        background-color: #10b981;
+        color: white;
+        font-size: 1.2rem;
+        font-weight: 600;
+        border: none;
+        padding: 14px;
+        width: 100%;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-top: 10px;
+      }
+
+      .submit-btn:hover {
+        background-color: #059669;
+      }
+
+      @media (max-width: 768px) {
+        .form-group {
+          flex-direction: column;
+        }
+
+        .nav-links {
+          margin-top: 1rem;
+        }
+
+        .nav-links a {
+          margin: 0.5rem 0.5rem 0 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="nav-title">Employee Productivity Prediction Using ML</div>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/predict">Predict</a>
+      </div>
+    </nav>
+
+    <!-- Form Container -->
+    <div class="container">
+      <form class="form" method="POST" action="/submit">
+        <div class="form-group">
+          <input type="number" name="quarter" placeholder="Quarter" required />
+          <input
+            type="number"
+            name="department"
+            placeholder="Department"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input type="number" name="day" placeholder="Day" required />
+          <input type="number" name="team" placeholder="Team" required />
+        </div>
+        <div class="form-group">
+          <input
+            type="number"
+            step="any"
+            name="targeted_productivity"
+            placeholder="Targeted Productivity"
+            required
+          />
+          <input
+            type="number"
+            step="any"
+            name="smv"
+            placeholder="SMV"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="number"
+            name="over_time"
+            placeholder="Over Time"
+            required
+          />
+          <input
+            type="number"
+            name="incentive"
+            placeholder="Incentive"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="number"
+            step="any"
+            name="idle_time"
+            placeholder="Idle Time"
+            required
+          />
+          <input
+            type="number"
+            name="idle_men"
+            placeholder="Idle Men"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="number"
+            name="no_of_style_change"
+            placeholder="No. of Style Changes"
+            required
+          />
+          <input
+            type="number"
+            name="no_of_workers"
+            placeholder="No. of Workers"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input type="number" name="month" placeholder="Month" required />
+        </div>
+        <button type="submit" class="submit-btn">SUBMIT</button>
+      </form>
+    </div>
+  </body>
+</html>

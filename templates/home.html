@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Home</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background-color: #000000;
+        color: white;
+        position: relative;
+        z-index: 2;
+      }
+
+      .navbar h2 {
+        margin: 0;
+        font-size: 1.5rem;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        background-color: #87ceeb;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        font-weight: 800;
+        transition: background-color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        background-color: #00bfff;
+      }
+
+      .hero {
+        position: relative;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background: url("{{ url_for('static', filename='images/performance.jpeg') }}")
+          no-repeat center center/cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .content-box {
+        background-color: transparent;
+        color: #090909;
+        padding: 2.5rem;
+        border-radius: 10px;
+        max-width: 1300px;
+        text-align: center;
+        box-shadow: none;
+      }
+
+      .content-box h1 {
+        margin-bottom: 1.1rem;
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-shadow: 1px 1px 2px #00000077;
+      }
+
+      .content-box p {
+        font-size: 1.8rem;
+        line-height: 1.4;
+        text-shadow: 1px 1px 2px #00000055;
+      }
+
+      @media (max-width: 768px) {
+        .content-box {
+          padding: 1.5rem;
+          font-size: 0.9rem;
+        }
+
+        .navbar {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.3rem;
+        }
+
+        .nav-links {
+          flex-wrap: wrap;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <h2>Employee Productivity Prediction Using ML</h2>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/predict">Predict</a>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="content-box">
+        <p>
+          Any business's success depends on its employees. Businesses that
+          realize this are concerned about employee output and productivity.
+          Productivity has a compounding effect at different levels in the
+          workplace, meaning that high productivity at a lower level paves the
+          way for higher productivity at the higher levels. Hence, analyzing
+          employee performance is the need of the hour.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
